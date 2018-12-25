@@ -4,25 +4,6 @@ require 'tempfile'
 require_relative '../../lib/rulua'
 
 RSpec.describe 'When specifying a lua function' do
-  def compile(process: false, &block)
-    expect do
-      node = RubyVM::AbstractSyntaxTree.of(block)
-      expect(node).to_not be_nil
-
-      lua = Rulua.tranverse(node)
-
-      if process
-        file = Tempfile.new
-        file.write lua
-        file.close
-        system("lua #{file.path}")
-      else
-        state = Rufus::Lua::State.new
-        state.eval(lua)
-      end
-    end
-  end
-
   context '#assert' do
     it 'succeeds on a true assertion' do
       compile do
