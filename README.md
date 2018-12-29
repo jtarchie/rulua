@@ -6,7 +6,7 @@ Would like to relu on `luajit` for the FFI interface.
 
 # Lua Interoperability
 
-Interacting with underlying golang features can be done at the standard library level.
+Interacting with underlying lua features can be done at the standard library level.
 This behaviour will be similar to [Elixir to Erlang](https://elixirschool.com/en/lessons/advanced/erlang).
 
 ## Method invocation
