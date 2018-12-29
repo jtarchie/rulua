@@ -14,7 +14,7 @@ module Rulua
           tranverse(child)
         end
       when :SCOPE
-        ['do', tranverse(node.children[2]), 'end'].join("\n")
+        ['do', 'return', tranverse(node.children[2]), 'end'].join("\n")
       when :CALL
         children = node.children
         case children[0].type

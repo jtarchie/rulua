@@ -1,20 +1,18 @@
 RSpec.configure do |config|
   def compile(process: false, &block)
-    expect do
-      node = RubyVM::AbstractSyntaxTree.of(block)
-      expect(node).to_not be_nil
+    node = RubyVM::AbstractSyntaxTree.of(block)
+    expect(node).to_not be_nil
 
-      lua = Rulua.tranverse(node)
+    lua = Rulua.tranverse(node)
 
-      if process
-        file = Tempfile.new
-        file.write lua
-        file.close
-        system("lua #{file.path}")
-      else
-        state = Rufus::Lua::State.new
-        state.eval(lua)
-      end
+    if process
+      file = Tempfile.new
+      file.write lua
+      file.close
+      expect(system("lua #{file.path}")).to be_truthy
+    else
+      state = Rufus::Lua::State.new
+      state.eval(lua)
     end
   end
   config.expect_with :rspec do |expectations|
