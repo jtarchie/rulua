@@ -13,7 +13,7 @@ This behaviour will be similar to [Elixir to Erlang](https://elixirschool.com/en
 
 The standard library can be referenced using a symbol and the appropriate method.
 If the arguments being passed in are mapped to similar types in the language, it should Just Work™.
-For example, a Ruby `String` should map to the golang `string`.
+For example, a Ruby `String` should map to the lua `string`.
 
 ```ruby
 :lua.print("Hello, World!")
