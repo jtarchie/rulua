@@ -19,4 +19,4 @@ For example, a Ruby `String` should map to the golang `string`.
 :lua.print("Hello, World!")
 ```
 
-Hopefully this enables light calling to golang functions, so some of the compiler can be self hosted.
+Hopefully this enables light calling to lua functions, so some of the compiler can be self hosted.
